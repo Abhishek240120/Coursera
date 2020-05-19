@@ -1,0 +1,141 @@
+@media(min-width: 992px){
+	*{
+		box-sizing: border-box;
+	}
+	h1{
+		text-align: center;
+	}
+	
+	section{
+		position: relative;
+        width:30.6%;
+        background-color: grey;
+        border: 1px solid black;
+        float: left;
+        margin-left: 2%;
+		
+	}
+	p{
+        margin-top: 35px;
+        padding: 5px;
+	}
+	article{
+		position: absolute;
+		width:20%;
+        right: 0px;
+        top:0px;
+		text-align: center;
+        font-weight: 150;
+		background-color: pink;
+		padding: 5px;
+		border: 1px solid black;
+
+	   	}
+	   	#article2{
+	   		background-color: yellow;
+	   	}
+	   	#article3{
+	   		background-color: indigo;
+	   	}
+   }
+	@media(min-width: 768px) and (max-width: 991px)
+	{
+           h1{
+		text-align: center;
+	    } 
+	    *{
+		box-sizing: border-box;
+	    }
+	    #section1,#section2{
+	    width:47%;
+		position: relative;
+        background-color: grey;
+        border: 1px solid black;
+        margin-left: 2%;
+       float: left;
+       margin-bottom: 40px;
+ 	    }
+	    	    
+	    #section3{
+	    	position: relative;
+             clear: left;
+	    	margin-left: 2%;
+	    	margin-right: 2%;
+	    	background-color: grey;
+            border: 1px solid black;
+          
+	    }
+	    p{
+	    	padding: 5px;
+	        margin-top: 35px;
+
+	    }
+	    article{
+           position:absolute;
+           right:0px;
+           top:0px; 
+           width:20%;
+	    }
+	    #article1,#article2{
+		text-align: center;
+        font-style: bold;
+		background-color: pink;
+		padding: 5px;
+		border: 1px solid black;
+
+	   	}
+	   	#article3{
+	   	text-align: center;
+        font-style: bold;
+		background-color:indigo;
+		padding: 5px;
+		border: 1px solid black;
+
+	   	}
+	   	#article2{
+	   		background-color: yellow;
+	   	}
+	   
+	  }
+	 @media(max-width: 767px) 
+	 {
+	 	h1{
+		text-align: center;
+	    } 
+	    *{
+		box-sizing: border-box;
+	    }
+	    p{
+	    	padding: 5px;
+	        margin-top: 35px;
+	    }
+	    section{
+	    	position: relative;
+	    width:96%;
+		position: relative;
+        background-color: grey;
+        border: 1px solid black;
+        margin-left: 2%;
+       
+       margin-bottom: 40px;
+ 	    }
+ 	    article{
+ 	    	position: absolute;
+            right:0px;
+            top:0px;
+            width:20%;
+		text-align: center;
+        font-style: bold;
+		background-color: pink;
+		padding: 5px;
+		border: 1px solid black;
+
+	   	}
+	   	#article2{
+	   		background-color: yellow;
+	   	}
+	   	#article3{
+	   		background-color: indigo;
+	   	}
+
+	 }
