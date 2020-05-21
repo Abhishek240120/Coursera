@@ -1,0 +1,118 @@
+body{
+	font-size: 16px;
+	color: #fff;
+	background-color: #61122f;
+	font-family: 'Oxygen',sans-serif;
+}
+#header-nav{
+	background-color: #f6b319;
+	border-radius:0;
+	border:0;
+}
+#logo-img{
+	background-image: url("logo.png");
+	background-position: top;
+	 width: 150px;
+  height: 150px;
+  margin: 10px 15px 10px 0;
+}
+.navbar-brand h1{
+	font-family: 'Lora',serif;
+	color:#557c3e;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #222;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 0.75;
+}
+.navbar-brand a:hover, .navbar-brand a:focus {
+  text-decoration: none;
+}
+ .navbar-brand p{
+ 	margin-top: 10px;
+ 	text-transform: uppercase;
+ 	color: #000f;
+ 	font-size: .7em;
+ 	vertical-align: middle;
+ }
+ #nav-list {
+  margin-top: 10px;
+}
+#nav-list a {
+  color: #951C49;
+  text-align: center;
+}
+#nav-list a:hover {
+  background: #E7E7E7;
+}
+#nav-list a span {
+  font-size: 1.8em;
+}
+#phone {
+
+  margin-top: 5px;
+}
+#phone a { /* Phone number */
+  text-align: right;
+  padding-bottom: 0;
+}
+#phone div { /* We Deliver */
+  color: #557c3e;
+  text-align: right;
+  padding-right: 15px;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+  border: 1px solid #61122f;
+}
+.navbar-header button.navbar-toggle {
+  clear: both;
+  margin-top: -25px;
+
+}
+#collapsable-nav{
+	right:0px;
+}
+#main-content .jumbotron{
+	background: url(pic2.jpg) no-repeat;
+	height: 400px;
+	background-size: 500px;
+	background-position: top center;
+
+}
+@media (max-width: 767px) {
+
+	#call-btn > a {
+    font-size: 1.5em;
+    display: block;
+    margin: 0 20px;
+    padding: 10px;
+    border: 2px solid #fff;
+    background-color: #f6b319;
+    color: #951c49;
+       }
+        #xs-deliver {
+    margin-top: 5px;
+    font-size: .7em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  #collapsable-nav a.orien-after-collapse{
+  	margin-right: 15px;
+  } 
+
+  #collapsable-nav a span { /* Collapsed nav menu glyph */
+    font-size: 1em;
+    margin-right: 5px;
+  }
+  #main-content .jumbotron{
+	background: url(pic2.jpg) no-repeat;
+	height: 200px;
+	background-size: 300px;
+	background-position: top center;
+
+}
+
+}
