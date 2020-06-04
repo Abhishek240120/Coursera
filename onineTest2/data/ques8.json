@@ -1,0 +1,70 @@
+[
+	{
+		"ques":"What is the capital of chattisgarh ?",
+	     "op1":"Dispur",
+	     "op2":"Raipur",
+	     "op3":"Jaipur"
+	},
+	{
+		"ques":"Which city is the capital of two states ?",
+	     "op1":"Chandigarh",
+	     "op2":"Jammu and Kashmir",
+	      "op3":"Punjab"
+
+	},
+	{
+		"ques":"Which is the northern most point of India  ?",
+	     "op1":"Andaman and Nicobar Island",
+	     "op2":"Indira Point",
+	      "op3":"Siachen Glacier"
+
+	},
+	{
+		"ques":"Who took over as president immediately after pratibha patil ?",
+	     "op1":"Zail singh",
+	     "op2":"Pranabh mukherjee",
+	      "op3":"APJ Abdul Kalam"
+	},
+	{
+		"ques":"Who was the first Vice-President of India ?",
+	     "op1":"Rajendra Prasad",
+	     "op2":"Zakir Hussain",
+	      "op3":"S Radhakrishnan"
+
+	},
+	{
+		"ques":"Who is the supreme commander of the Armed forces of country ?",
+	     "op1":"president",
+	     "op2":"army chief",
+	     "op3":"Prime Minister"
+	},
+	{
+		"ques":"Kathakali is dance form of _______ ?",
+	     "op1":"Kerala",
+	     "op2":"Tamil Nadu",
+	      "op3":"Odisha"
+
+	},
+	{
+		"ques":"Kathak is a classical dance of ______ ?",
+	     "op1":"Manipur",
+	     "op2":"Assam",
+	      "op3":"North India"
+
+	},
+	{
+		"ques":"kuchipudi is the classical dance of_______ ?",
+	     "op1":"Andhra Pradesh",
+	     "op2":"Assam",
+	      "op3":"Manipur"
+
+	},
+	{
+		"ques":"what is the number of unoin terrotries ?",
+	     "op1":"seven ",
+	     "op2":"Nine",
+	      "op3":"Ten"
+
+	}	
+
+]
