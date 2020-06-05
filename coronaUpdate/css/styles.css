@@ -1,0 +1,13 @@
+#heading{
+	color: red;
+}
+#subheading{
+	color: skyblue;
+}
+#tableHeading{
+}
+#tableHeading div{
+	font-weight:bold;
+	padding: 3px;
+	border: 1px solid black;
+}
