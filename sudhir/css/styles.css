@@ -76,7 +76,7 @@ body{
 	right:0px;
 }
 #main-content .jumbotron{
-	background: url(pic2.jpg) no-repeat;
+	background: url(myphoto.jpeg) no-repeat;
 	height: 700px;
 	background-size: 100%;
 	background-position: top center;
@@ -244,10 +244,10 @@ h3.menu-item-title {
     margin-right: 5px;
   }
   #main-content .jumbotron{
-	background: url(pic2.jpg) no-repeat;
+	background: url(myphoto.jpeg) no-repeat;
 	height: 200px;
 	background-size: 100%;
-	background-position: top center;
+	background-position: top center ;
 
 }
  .panel-footer section {
