@@ -23,6 +23,9 @@
   <div>
       <found-items found-list="controller.found" on-remove="controller.removeItem(index)"></found-items>
   </div>
+  <div ng-if="controller.notfound" align="center" style="font-weight: bold;font-style: italic;color: red;">
+      Nothing found
+  </div>
 </div>
 </body>
 </html>
