@@ -1,0 +1,26 @@
+<div>
+	<div>
+		<a ui-sref="home"
+		>home</a> &lt <a ui-sref="categories">categories</a>
+
+	</div>
+	<h1 style="font-style: italic;">Items
+		<div>
+			Category:{{$ctrl.category}}
+		</div>
+	</h1>
+	<ol>
+		<li  ng-repeat="category in $ctrl.items">
+			{{category.name}}
+			<ul>
+			 	<li>
+			 		<span style="font-weight: bold;">Description:</span>{{category.description}}
+			 	</li>
+			 	<li>
+			 		<span style="font-weight: bold;">Price:</span>${{category.price_large}}
+			 	</li>
+			 </ul>
+		</li>
+	   </a>
+	</ol>
+</div>

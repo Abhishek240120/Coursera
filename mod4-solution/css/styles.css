@@ -1,0 +1,17 @@
+a{
+	text-decoration: none;
+	
+}
+a:hover{
+	font-weight: bold;
+	color: blue;
+}
+li>a{
+ color:red;	
+ text-decoration: none;
+}
+
+li>a:hover{
+ color:black;	
+ font-weight: bold;
+}
