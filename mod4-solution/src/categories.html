@@ -1,11 +1,13 @@
 <div>
 	<div>
+		<h2>
 		<a ui-sref="home">home</a>
+		</h2>
 	</div>
 	<h1 style="font-style: italic;">categories</h1>
 	<ol>
 		
-		<li  ng-repeat="category in $ctrl.items">
+		<li  ng-repeat="category in $ctrl.items" class="categoryList">
 			<a ui-sref="items({itemShortname:category.short_name
 			})">
 			{{category.name}}  

@@ -3,15 +3,20 @@ a{
 	
 }
 a:hover{
-	font-weight: bold;
+	font-style: italic;
 	color: blue;
 }
-li>a{
- color:red;	
+li{
+	font-size: 30px;
+}
+li > a{
+ color:black;	
  text-decoration: none;
+ font-size: 30px;
 }
 
-li>a:hover{
- color:black;	
+li > a:hover{
+border-color: black;
+ color:orange;	
  font-weight: bold;
 }
