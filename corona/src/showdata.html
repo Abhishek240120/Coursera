@@ -1,6 +1,6 @@
 <div>
 	<h2>States:</h2>
-	<ol>
+	<ul>
 		<li ng-repeat="state in ctrl.states" class="state" style="margin-left: 10px;">
 			<a ng-click="ctrl.search(state);"  >{{state}}</a>
 			<ul ng-if="ctrl.listofstate[state].istrue">
@@ -16,5 +16,5 @@
 				</li>
 			</ul>
 		</li>
-	</ol>
+	</ul>
 </div>
