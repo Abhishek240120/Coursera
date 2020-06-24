@@ -1,0 +1,20 @@
+<div>
+	<h2>States:</h2>
+	<ol>
+		<li ng-repeat="state in ctrl.states" class="state">
+			<a ng-click="ctrl.search(state);"  >{{state}}</a>
+			<ul ng-if="ctrl.listofstate[state].istrue">
+				<li ng-repeat="dis in ctrl.listofstate[state].district" style="color:blue;font-weight: bold;">
+
+					{{dis.name}} 
+					<ul style="font-style: italic;color: red;">
+						<li style="font-size: 25px;">Active:{{dis.active}} </li>
+						<li style="font-size: 25px;">Deceased:{{dis.deceased}}</li>
+						<li style="color: green;font-size: 25px;">Recovered:{{dis.recovered}}</li>
+						<li style="font-size: 25px;">Total:{{dis.total}}</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ol>
+</div>
