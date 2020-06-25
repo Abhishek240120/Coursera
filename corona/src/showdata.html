@@ -1,9 +1,23 @@
-<div>
-	<h2>States:</h2>
-	<ul>
-		<li ng-repeat="state in ctrl.states" class="state" style="margin-left: 10px;">
-			<a ng-click="ctrl.search(state);"  >{{state}}</a>
-			<ul ng-if="ctrl.listofstate[state].istrue">
+<div style="background-color: #e6e6e6">
+	<div class="container">
+	<input type="text" name="searchState" ng-model="ctrl.searchState" placeholder="Enter state" style="height: 30px;  width:80%;">
+	<a href="#Bihar"> Search</a>
+	<br>
+	</div>
+	<div class="list">
+		<div ng-repeat="state in ctrl.states" class="state" style="background-color: white;">
+			<section id="{{state}}" >
+			<a ng-click="ctrl.search(state);" ui-sref="home.child" style="font-weight: bold;font-size: 15px;">{{state}}</a>
+			<span style="float:right;background: blue;color: white;font-weight: bold ;margin:3px;">{{ctrl.listofstate[state].total}}</span>
+			<br><br><br>
+            <div class="row container">
+			<div class="col-xs-4" style="font-size: 17px;color: red;">{{ctrl.listofstate[state].active}}<br>active</div>
+
+			<div class="col-xs-4" style="font-size:17px;color: green; ">{{ctrl.listofstate[state].recovered}}<br>recovered</div>
+
+			<div class="col-xs-4" style="font-size: 17px;color: black; ">{{ctrl.listofstate[state].deceased}}<br>deceased</div>
+			</div>
+			<!-- <ul ng-if="ctrl.listofstate[state].istrue">
 				<li ng-repeat="dis in ctrl.listofstate[state].district" style="color:blue;font-weight: bold;">
 
 					{{dis.name}} 
@@ -14,7 +28,9 @@
 						<li style="font-size: 25px;">Total:{{dis.total}}</li>
 					</ul>
 				</li>
-			</ul>
-		</li>
-	</ul>
+			</ul> -->
+		</section>
+		</div>
+	</div>
 </div>
+<ui-view></ui-view>

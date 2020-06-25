@@ -28,7 +28,7 @@ function Routesconfig($stateProvider,$urlRouterProvider){
 			}
 		})
 	.state('home.child',{
-		url:'/home/insidestate',
+		url:'/home/child',
 		templateUrl:"src/showdataofstate.html",
 		// controller:datainsidestatecollectcontroller,
 		// controllerAs:'ctrl2',
@@ -37,6 +37,7 @@ function Routesconfig($stateProvider,$urlRouterProvider){
  datacollectcontroller.$inject=['wholedata'];
  function datacollectcontroller(wholedata){
  	var ctrl=this;
+ 	ctrl.searchState="";
  	ctrl.data=wholedata;
  	console.log(wholedata);
  	ctrl.listofstate={};
@@ -45,33 +46,53 @@ function Routesconfig($stateProvider,$urlRouterProvider){
  		ctrl.states.push(state);
  		ctrl.listofstate[state]={};
  		ctrl.listofstate[state].district=[];
+ 		ctrl.listofstate[state].active=0;
+ 		ctrl.listofstate[state].deceased=0;
+ 		ctrl.listofstate[state].recovered=0;
+ 		ctrl.listofstate[state].total=0;
  		ctrl.listofstate[state].istrue=false;
- 	}
- 	
- 	
- 	ctrl.search=function(state){
- 		if(ctrl.listofstate[state].istrue===true){
- 			ctrl.listofstate[state]={};
- 			ctrl.listofstate[state].district=[];
- 			ctrl.listofstate[state].istrue=false;
- 		}
- 		else{
- 			ctrl.listofstate[state].istrue=true;
- 			for(var dis in wholedata[state].districtData){
+ 		for(var dis in wholedata[state].districtData){
  				var disDetail={};
  				disDetail.name=dis;
  				disDetail.deceased=ctrl.data[state].districtData[dis].deceased;
  				disDetail.active=ctrl.data[state].districtData[dis].active;
  				disDetail.recovered=ctrl.data[state].districtData[dis].recovered;
  				disDetail.total=disDetail.deceased+disDetail.active+disDetail.recovered;
-
+ 				ctrl.listofstate[state].active += disDetail.active;
+ 				ctrl.listofstate[state].recovered += disDetail.recovered;
+ 				ctrl.listofstate[state].deceased += disDetail.deceased;
  				ctrl.listofstate[state].district.push(disDetail);
  				//ctrl.listofstate[state].district[dis]={};
  			}
- 		}
- 		 console.log(ctrl.listofstate);
+ 		ctrl.listofstate[state].total=ctrl.listofstate[state].recovered=ctrl.listofstate[state].recovered+ctrl.listofstate[state].deceased;
 
  	}
+ 	
+ 	
+ 	ctrl.search=function(state){
+ 	// 	if(ctrl.listofstate[state].istrue===true){
+ 	// 		ctrl.listofstate[state]={};
+ 	// 		ctrl.listofstate[state].district=[];
+ 	// 		ctrl.listofstate[state].istrue=false;
+ 	// 	}
+ 	// 	else{
+ 	// 		ctrl.listofstate[state].istrue=true;
+ 	// 		for(var dis in wholedata[state].districtData){
+ 	// 			var disDetail={};
+ 	// 			disDetail.name=dis;
+ 	// 			disDetail.deceased=ctrl.data[state].districtData[dis].deceased;
+ 	// 			disDetail.active=ctrl.data[state].districtData[dis].active;
+ 	// 			disDetail.recovered=ctrl.data[state].districtData[dis].recovered;
+ 	// 			disDetail.total=disDetail.deceased+disDetail.active+disDetail.recovered;
+ 	// 			ctrl.listofstate[state].active += disDetail.active;
+ 	// 			ctrl.listofstate[state].recovered += disDetail.recovered;
+ 	// 			ctrl.listofstate[state].district.push(disDetail);
+ 	// 			//ctrl.listofstate[state].district[dis]={};
+ 	// 		}
+ 	// 	}
+ 	// 	 console.log(ctrl.listofstate);
+
+ 	 }
  	
  }
 
