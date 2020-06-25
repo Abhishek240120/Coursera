@@ -64,7 +64,7 @@ function Routesconfig($stateProvider,$urlRouterProvider){
  				ctrl.listofstate[state].district.push(disDetail);
  				//ctrl.listofstate[state].district[dis]={};
  			}
- 		ctrl.listofstate[state].total=ctrl.listofstate[state].recovered=ctrl.listofstate[state].recovered+ctrl.listofstate[state].deceased;
+ 		ctrl.listofstate[state].total=ctrl.listofstate[state].recovered+ctrl.listofstate[state].active+ctrl.listofstate[state].deceased;
 
  	}
  	
