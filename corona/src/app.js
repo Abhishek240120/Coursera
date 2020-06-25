@@ -28,18 +28,16 @@ function Routesconfig($stateProvider,$urlRouterProvider){
 			}
 		})
 	.state('home.child',{
-		url:'/home/child',
 		templateUrl:"src/showdataofstate.html",
-		// controller:datainsidestatecollectcontroller,
-		// controllerAs:'ctrl2',
+		controller:datainsidestatecontroller,
+		controllerAs:'ctrl2',
 		});
 }
- datacollectcontroller.$inject=['wholedata'];
- function datacollectcontroller(wholedata){
+ datacollectcontroller.$inject=['wholedata','$rootScope'];
+ function datacollectcontroller(wholedata,$rootScope){
  	var ctrl=this;
  	ctrl.searchState="";
  	ctrl.data=wholedata;
- 	console.log(wholedata);
  	ctrl.listofstate={};
  	ctrl.states=[];
  	for(var state in ctrl.data){
@@ -70,32 +68,47 @@ function Routesconfig($stateProvider,$urlRouterProvider){
  	
  	
  	ctrl.search=function(state){
- 	// 	if(ctrl.listofstate[state].istrue===true){
- 	// 		ctrl.listofstate[state]={};
- 	// 		ctrl.listofstate[state].district=[];
- 	// 		ctrl.listofstate[state].istrue=false;
- 	// 	}
- 	// 	else{
- 	// 		ctrl.listofstate[state].istrue=true;
- 	// 		for(var dis in wholedata[state].districtData){
- 	// 			var disDetail={};
- 	// 			disDetail.name=dis;
- 	// 			disDetail.deceased=ctrl.data[state].districtData[dis].deceased;
- 	// 			disDetail.active=ctrl.data[state].districtData[dis].active;
- 	// 			disDetail.recovered=ctrl.data[state].districtData[dis].recovered;
- 	// 			disDetail.total=disDetail.deceased+disDetail.active+disDetail.recovered;
- 	// 			ctrl.listofstate[state].active += disDetail.active;
- 	// 			ctrl.listofstate[state].recovered += disDetail.recovered;
- 	// 			ctrl.listofstate[state].district.push(disDetail);
- 	// 			//ctrl.listofstate[state].district[dis]={};
- 	// 		}
- 	// 	}
- 	// 	 console.log(ctrl.listofstate);
+ 		$rootScope.$broadcast("State",{prop:state})
 
  	 }
  	
  }
-
+datainsidestatecontroller.$inject=['$rootScope','wholedata'];
+function datainsidestatecontroller($rootScope,wholedata){
+	var ctrl=this;
+	ctrl.districtlist=[];
+	ctrl.state=[];
+	$rootScope.$on("State",function(event,data){
+		ctrl.state=[];
+		ctrl.districtlist=[];
+		ctrl.state=data.prop;
+		console.log(ctrl.state);
+		for(var dis in wholedata[ctrl.state].districtData){
+			var disDetail={};
+ 				disDetail.name=dis;
+ 				disDetail.deceased=wholedata[ctrl.state].districtData[dis].deceased;
+ 				disDetail.active=wholedata[ctrl.state].districtData[dis].active;
+ 				disDetail.recovered=wholedata[ctrl.state].districtData[dis].recovered;
+ 				disDetail.total=disDetail.deceased+disDetail.active+disDetail.recovered;
+ 				ctrl.districtlist.push(disDetail);
+		}
+		console.log(ctrl.districtlist);
+	});
+	ctrl.search=function(){
+		ctrl.districtlist=[];
+		ctrl.state=ctrl.state[0].toUpperCase()+ctrl.state.slice(1).toLowerCase();
+		console.log(ctrl.state);
+		for(var dis in wholedata[ctrl.state].districtData){
+			var disDetail={};
+ 				disDetail.name=dis;
+ 				disDetail.deceased=wholedata[ctrl.state].districtData[dis].deceased;
+ 				disDetail.active=wholedata[ctrl.state].districtData[dis].active;
+ 				disDetail.recovered=wholedata[ctrl.state].districtData[dis].recovered;
+ 				disDetail.total=disDetail.deceased+disDetail.active+disDetail.recovered;
+ 				ctrl.districtlist.push(disDetail);
+		}
+	}
+}
 
 datacollectservice.$inject=['$http'];
 function datacollectservice($http){

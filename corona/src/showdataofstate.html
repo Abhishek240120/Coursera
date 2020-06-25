@@ -1,1 +1,29 @@
-<div>showdataofstate</div>
+<div class="container">
+	<div>
+		<input type="text" name="state" placeholder="Enter State" style="width:80%;text-transform: capitalize;" ng-model="ctrl2.state" text>
+		<input type="submit" value="Search" ng-click="ctrl2.search();">
+	</div>
+	<br><br>
+	<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">District</th>
+				<th scope="col">Active</th>
+				<th scope="col">Recovered</th>
+				<th scope="col">Deceased</th>
+				<th scope="col">Confirmed</th>	
+			</tr>
+		</thead>
+
+		<tbody ng-repeat="dis in ctrl2.districtlist" >
+			<tr>
+				<th scope="row">{{dis.name}}</th>
+					<td>{{dis.active}}</td>
+					<td>{{dis.recovered}}</td>
+					<td>{{dis.deceased}}</td>
+					<td>{{dis.total}}</td>
+					
+			</tr>
+		</tbody>
+	</table>
+</div>
