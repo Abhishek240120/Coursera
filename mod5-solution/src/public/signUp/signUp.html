@@ -1,0 +1,69 @@
+ <div class="container">
+ <h1>Sign Up  </h1>
+ <hr>
+    <div style="color: blue;">
+    <fieldset >
+    
+         <form name='regForm' novalidate>
+
+        <input type="text" name="firstname" placeholder="Firstname"
+        ng-model="signUpCtrl.user.firstname"
+          required
+          minlength="3"
+          ng-maxlength="20" style="width: 50%;margin-top: 5px;">
+          <span style="color: white" 
+            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            Firstname must be at least 3 characters long
+          </span>
+          <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched" style="color: white;margin-top: 5px;" >
+            Firstname must not be longer than 20 characters
+          </span>
+          <br>
+
+        <input type="text" name="lastname" placeholder=" Lastname"
+        ng-model="signUpCtrl.user.lastname"
+          required
+          minlength="3"
+          ng-maxlength="20" style="width: 50%;margin-top: 5px;">
+          <span
+            ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched" style="color: white" >
+            Lastname must be at least 3 characters long
+          </span>
+          <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched" style="color: white;margin-top: 5px;" >
+            Lastname must not be longer than 20 characters
+          </span>
+          <br>
+
+        <input type="email" name="email" placeholder="Email"
+        ng-model="signUpCtrl.user.email"
+          required style="width: 50%;margin-top: 5px;">
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched" style="color: white" >
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+        ng-model="signUpCtrl.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})" style="width: 50%;margin-top: 5px;">
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched" style="color: white;margin-top: 5px;" >
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+          <input type="text" name="favShortname" placeholder="Favourite Dish(Shortname)"
+          ng-model="signUpCtrl.user.favShortname"
+            required
+           style="width: 50%;margin-top: 5px;margin-bottom: 5px;">
+          <br>
+        <button
+            ng-disabled="regForm.$invalid"
+            ng-click="signUpCtrl.submitForm()"
+            >Submit</button>
+      </form>
+    </fieldset>
+  </div>
+  <br>
+  <div style="font-style: italic;color: white;font-weight: bold;">
+    {{signUpCtrl.message}}
+  </div>
+  
+</div>
