@@ -9,8 +9,9 @@ angular.module('CoronaApp')
 .config(Routesconfig);
 
 
-Routesconfig.$inject=['$stateProvider','$urlRouterProvider'];
-function Routesconfig($stateProvider,$urlRouterProvider){
+Routesconfig.$inject=['$stateProvider','$urlRouterProvider','$locationProvider'];
+function Routesconfig($stateProvider,$urlRouterProvider,$locationProvider){
+	$locationProvider.hashPrefix('!');
 	$urlRouterProvider.otherwise('/home');
 	$stateProvider
 	.state('home',{
@@ -28,16 +29,44 @@ function Routesconfig($stateProvider,$urlRouterProvider){
 			}
 		})
 	.state('home.child',{
+		url:'/child/{itemid}',
 		templateUrl:"src/showdataofstate.html",
 		controller:datainsidestatecontroller,
 		controllerAs:'ctrl2',
+		resolve:{
+					data:['$stateParams',function($stateParams){
+							return $stateParams.itemid;
+					     }]
+
+				}
 		});
 }
- datacollectcontroller.$inject=['wholedata','$rootScope'];
- function datacollectcontroller(wholedata,$rootScope){
+ datacollectcontroller.$inject=['wholedata','$rootScope','$location','$anchorScroll','$state','$timeout'];
+ function datacollectcontroller(wholedata,$rootScope,$location,$anchorScroll,$state,$timeout){
  	var ctrl=this;
+ 	ctrl.goto=function(input){
+ 		console.log("It m life");
+ 		$location.hash(input);
+ 		$anchorScroll();
+ 	};
+ 	ctrl.gotoBottom=function(inputState){
+ 		console.log("mmmm");
+ 		
+ 		//$state.go('home.child({itemid:state})');
+ 		var a={itemid:inputState};
+ 		$timeout(function(){
+ 			$anchorScroll('bottom');
+ 		},1000);
+ 		 $state.go("home.child",a);
+ 		//$location.hash('bottom');
+ 	}
  	ctrl.searchState="";
  	ctrl.data=wholedata;
+ 	ctrl.country={};
+ 	ctrl.country.total=0;
+ 	ctrl.country.active=0;
+ 	ctrl.country.recovered=0;
+ 	ctrl.country.deceased=0;
  	ctrl.listofstate={};
  	ctrl.states=[];
  	for(var state in ctrl.data){
@@ -63,26 +92,23 @@ function Routesconfig($stateProvider,$urlRouterProvider){
  				//ctrl.listofstate[state].district[dis]={};
  			}
  		ctrl.listofstate[state].total=ctrl.listofstate[state].recovered+ctrl.listofstate[state].active+ctrl.listofstate[state].deceased;
-
+ 		ctrl.country.total += ctrl.listofstate[state].total;
+ 		ctrl.country.active += ctrl.listofstate[state].active;
+ 		ctrl.country.recovered += ctrl.listofstate[state].recovered;
+ 		ctrl.country.deceased += ctrl.listofstate[state].deceased;
  	}
  	
+ console.log(ctrl.country);	
  	
- 	ctrl.search=function(state){
- 		$rootScope.$broadcast("State",{prop:state})
-
- 	 }
  	
  }
-datainsidestatecontroller.$inject=['$rootScope','wholedata'];
-function datainsidestatecontroller($rootScope,wholedata){
+datainsidestatecontroller.$inject=['data','wholedata'];
+function datainsidestatecontroller(data,wholedata){
 	var ctrl=this;
+
 	ctrl.districtlist=[];
-	ctrl.state=[];
-	$rootScope.$on("State",function(event,data){
-		ctrl.state=[];
-		ctrl.districtlist=[];
-		ctrl.state=data.prop;
-		console.log(ctrl.state);
+	ctrl.state=data;
+	console.log(ctrl.state);
 		for(var dis in wholedata[ctrl.state].districtData){
 			var disDetail={};
  				disDetail.name=dis;
@@ -92,11 +118,9 @@ function datainsidestatecontroller($rootScope,wholedata){
  				disDetail.total=disDetail.deceased+disDetail.active+disDetail.recovered;
  				ctrl.districtlist.push(disDetail);
 		}
-		console.log(ctrl.districtlist);
-	});
 	ctrl.search=function(){
-		ctrl.districtlist=[];
-		ctrl.state=ctrl.state[0].toUpperCase()+ctrl.state.slice(1).toLowerCase();
+		 ctrl.districtlist=[];
+		// ctrl.state=ctrl.state[0].toUpperCase()+ctrl.state.slice(1).toLowerCase();
 		console.log(ctrl.state);
 		for(var dis in wholedata[ctrl.state].districtData){
 			var disDetail={};
@@ -108,6 +132,7 @@ function datainsidestatecontroller($rootScope,wholedata){
  				ctrl.districtlist.push(disDetail);
 		}
 	}
+
 }
 
 datacollectservice.$inject=['$http'];

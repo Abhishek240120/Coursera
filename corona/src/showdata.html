@@ -1,13 +1,74 @@
+
+<br><br>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3" style="color: red;font-style: italic;">
+			{{ctrl.country.total}}<br>confirmed
+		</div>
+		<div class="col-xs-3" style="color: red;font-style: italic;">
+			{{ctrl.country.active}}<br>active
+		</div>
+		<div class="col-xs-3" style="color: green;font-style: italic;">
+			{{ctrl.country.recovered}}<br>recovered
+		</div>
+		<div class="col-xs-3" style="color: black;font-style: italic;">
+			{{ctrl.country.deceased}}<br>deceased
+		</div>
+	</div>
+</div>
+<br><br>
 <div style="background-color: #e6e6e6">
 	<div class="container">
-	<input type="text" name="searchState" ng-model="ctrl.searchState" placeholder="Enter state" style="height: 30px;  width:80%; margin-top: 10px;">
-	<a href="#Bihar"> Search</a>
+	<select ng-model="ctrl.searchState"  style="height: 30px;  width:80%; margin-top: 10px;" >
+		<option selected value="">Select State</option>
+		<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+		<option value="Andhra Pradesh">Andhra Pradesh</option>
+		<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+		<option value="Assam">Assam</option>
+		<option value="Bihar">Bihar</option>
+		<option value="Chandigarh">Chandigarh</option>
+		<option value="Chhattisgarh">Chhattisgarh</option>
+		<option value="Delhi">Delhi</option>
+		<option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+		<option value="Goa">Goa</option>
+		<option value="Gujarat">Jharkhand</option>
+		<option value="Himachal Pradesh">Himachal Pradesh</option>
+		<option value="Haryana">Haryana</option>
+		<option value="Jharkhand">Jharkhand</option>
+		<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+		<option value="Karnataka">Karnataka</option>
+		<option value="Kerala">Kerala</option>
+		<option value="Ladakh">Ladakh</option>
+		<option value="Lakshadweep">Lakshadweep</option>
+		<option value="Maharashtra">Maharashtra</option>
+		<option value="Meghalaya">Meghalaya</option>
+		<option value="Manipur">Manipur</option>
+		<option value="Madhya Pradesh">Madhya Pradesh</option>
+		<option value="Mizoram">Mizoram</option>
+		<option value="Nagaland">Nagaland</option>
+		<option value="Odisha">Odisha</option>
+
+		<option value="Punjab">Punjab</option>
+		<option value="Puducherry"> Puducherry</option>
+		<option value="Rajasthan">Rajasthan</option>
+		<option value="Sikkim">Sikkim</option>
+		<option value="Telangana">Telangana</option>
+		<option value="Tamil Nadu">Tamil Nadu</option>
+		<option value="Tripura">Tripura</option>
+		<option value="Uttar Pradesh">Uttar Pradesh</option>
+		<option value="Uttarakhand">Uttarakhand</option>
+		<option value="lWest Benga">West Bengal</option>
+
+	</select>
+	<!-- <input type="text" name="searchState" ng-model="ctrl.searchState" placeholder="Enter state" style="height: 30px;  width:80%; margin-top: 10px;"> -->
+	<input type="button" name="button" value="Search" ng-click="ctrl.goto(ctrl.searchState);">
 	<br>
 	</div>
-	<div class="list">
+	<div id="list">
 		<div ng-repeat="state in ctrl.states" class="state" style="background-color: white;">
-			<section id="{{state}}" >
-			<a ng-click="ctrl.search(state);" ui-sref="home.child" style="font-weight: bold;font-size: 15px;">{{state}}</a>
+		<section id={{state}}>
+			<a  ng-click="ctrl.gotoBottom(state);" style="font-weight: bold;font-size: 15px;" >{{state}}</a>
+
 			<span style="float:right;background: blue;color: white;font-weight: bold ;margin:3px;">{{ctrl.listofstate[state].total}}</span>
 			<br><br><br>
             <div class="row container">
@@ -17,20 +78,12 @@
 
 			<div class="col-xs-4" style="font-size: 17px;color: black; ">{{ctrl.listofstate[state].deceased}}<br>deceased</div>
 			</div>
-			<!-- <ul ng-if="ctrl.listofstate[state].istrue">
-				<li ng-repeat="dis in ctrl.listofstate[state].district" style="color:blue;font-weight: bold;">
-
-					{{dis.name}} 
-					<ul style="font-style: italic;color: red;">
-						<li style="font-size: 25px;">Active:{{dis.active}} </li>
-						<li style="font-size: 25px;">Deceased:{{dis.deceased}}</li>
-						<li style="color: green;font-size: 25px;">Recovered:{{dis.recovered}}</li>
-						<li style="font-size: 25px;">Total:{{dis.total}}</li>
-					</ul>
-				</li>
-			</ul> -->
-		</section>
+		</section>	
 		</div>
 	</div>
 </div>
-<ui-view></ui-view>
+<div id="bottom">
+ 	<ui-view>
+ 		
+ 	</ui-view>
+</div>
