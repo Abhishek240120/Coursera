@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <style>
+      .navbar-text{
+        font-weight: bold;
+        color: white;
+      }
+      .nav-item:hover{
+        font-weight: bold;
+      }
+      .dropdown-item:hover{
+        background-color: green;
+        color: white;
+      }
+      .nav-item:active{
+        background-color: green;
+        color: white;
+      }
+      #homepage-frontpic{
+        height: 550px;
+        width: 549px;
+      }
+      @media(max-width: 590px){
+        #homepage-frontpic{
+          height: 300px;
+          width: 549px;
+        }
+      }
+    </style>
+
+    <title>weCODE home</title>
+  </head>
+  <body>
+         <!--  creating navbar-->       
+     <nav class="navbar   navbar-expand-lg  navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSL-q74FKC2V29auuuhxmFxWYNbH3I_7bhdhQ&usqp=CAU" width="30" height="30" alt="" loading="lazy"><span class="mx-4 navbar-text">weCODE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home</span> <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#">Technology</a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Languages
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">c</a>
+                        <a class="dropdown-item" href="python.html">python</a>
+                        <a class="dropdown-item" href="#">HTML</a>
+                        <a class="dropdown-item" href="#">CSS</a>
+                        <a class="dropdown-item" href="#">Javascript</a>
+                      </div>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+      </nav>
+
+     <!--  main body -->
+     <div class="container overflow-auto" style="height: 500px; margin-top: 10px;">
+      <form class="needs-validation" novalidate>
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip01">First name</label>
+            <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip02">Last name</label>
+            <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+            <div class="valid-tooltip">
+              Looks good!
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationTooltip03">City</label>
+            <input type="text" class="form-control" id="validationTooltip03" required>
+            <div class="invalid-tooltip">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip04">State</label>
+            <select class="custom-select" id="validationTooltip04" required>
+              <option selected disabled value="">Choose...</option>
+              <option>...</option>
+            </select>
+            <div class="invalid-tooltip">
+              Please select a valid state.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="validationTooltip05">Zip</label>
+            <input type="text" class="form-control" id="validationTooltip05" required>
+            <div class="invalid-tooltip">
+              Please provide a valid zip.
+            </div>
+          </div>
+
+        </div>
+          <div class="form-group row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="user@domain">
+              </div>
+          </div>
+         Write an article to us:
+         <div class="custom-file">
+          <input type="file" class="custom-file-input" id="customFile">
+          <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+       <br>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </form>
+    </div>
+     <!-- footer -->
+
+   <footer class="panel-footer  bg-dark">
+    <div class="container" style="color: white;">
+      <div class="row">
+        <div class="col-md-4 my-3">
+          <a href="#">About us</a><br>
+          <a href="#">Contribute</a><br>
+          <a href="#">Contact us</a><br>
+        </div>
+        <hr style="width:70%;text-align:left;margin-left:0;border-top: 1px solid white" class=" d-block d-sm-none">
+        <div class="col-md-4 my-3">
+          Address:
+          Laheriasarai<br>
+          Darbhanga 846001<br>
+          Bihar, India<br>
+        </div>
+        <hr style="width:70%;text-align:left;margin-left:0;border-top: 1px solid white" class=" d-block d-sm-none">
+        <div class="col-md-4 my-3" style="font-style: italic;">
+         “It’s harder to read code than to write it.” <br>— Joel Spolsky
+        </div> 
+      </div>
+      <br>
+      <div align="center">
+        weCODE cpoyright &copy 2020 
+      </div>
+    </div> 
+    <br>
+   </footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
