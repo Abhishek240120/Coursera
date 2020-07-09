@@ -34,6 +34,9 @@
           width: 549px;
         }
       }
+      #signupbutton{
+        margin-right: 7px;
+      }
     </style>
 
     <title>weCODE home</title>
@@ -41,7 +44,7 @@
   <body>
          <!--  creating navbar-->       
      <nav class="navbar   navbar-expand-lg  navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.html">
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSL-q74FKC2V29auuuhxmFxWYNbH3I_7bhdhQ&usqp=CAU" width="30" height="30" alt="" loading="lazy"><span class="mx-4 navbar-text">weCODE</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,6 +58,9 @@
                     </li>
                     <li class="nav-item ">
                       <a class="nav-link" href="#">Technology</a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="corona.html">Take A Corona Test <span class="badge badge-secondary" style="background-color: red;color: white">New</span></a>
                     </li>
                     <li class="nav-item dropdown ">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,9 +76,75 @@
                     </li>
                   </ul>
                   <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
+                      <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal" id="signupbutton">
+                    signUp
+                  </button>
+                   
+                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#LoginModal" id="loginbutton">
+                    Login
+                  </button>
+                  
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1" style="margin-right: 3px;">Email address</label>
+                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1" style="margin-right: 3px;">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1">
+                                </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                                <div class="form-group">
+                                  <label for="exampleInputEmail1" style="margin-right: 3px;">Email address</label>
+                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1" style="margin-right: 3px;">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1">
+                                </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
       </nav>
           <!-- creating front pic -->
@@ -164,8 +236,8 @@
       <div class="row">
         <div class="col-md-4 my-3">
           <a href="contribute.html">About us</a><br>
-          <a href="#">Contribute</a><br>
-          <a href="#">Contact us</a><br>
+          <a href="contribute.html">Contribute</a><br>
+          <a href="contribute.html">Contact us</a><br>
         </div>
         <hr style="width:70%;text-align:left;margin-left:0;border-top: 1px solid white" class=" d-block d-sm-none">
         <div class="col-md-4 my-3">

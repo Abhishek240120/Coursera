@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="CoronaQuiz">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,7 +7,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+   <!-- angular -->
+     <script src="lib/angular.min.js"></script>
+    <script src="src/app.js"></script>
     <style>
       .navbar-text{
         font-weight: bold;
@@ -27,6 +29,13 @@
       #homepage-frontpic{
         height: 550px;
         width: 549px;
+      }
+      #submitButton {
+        margin-top: 45px;
+      }
+      #submitButton :hover{
+        background-color: green;
+
       }
       @media(max-width: 590px){
         #homepage-frontpic{
@@ -77,65 +86,44 @@
       </nav>
 
      <!--  main body -->
-     <div class="container overflow-auto" style="height: 500px; margin-top: 10px;">
-      <form class="needs-validation" novalidate>
-        <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="validationTooltip01">First name</label>
-            <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
-            <div class="valid-tooltip">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="validationTooltip02">Last name</label>
-            <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
-            <div class="valid-tooltip">
-              Looks good!
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-row">
-          <div class="col-md-6 mb-3">
-            <label for="validationTooltip03">City</label>
-            <input type="text" class="form-control" id="validationTooltip03" required>
-            <div class="invalid-tooltip">
-              Please provide a valid city.
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="validationTooltip04">State</label>
-            <select class="custom-select" id="validationTooltip04" required>
-              <option selected disabled value="">Choose...</option>
-              <option value="Andhra Pradesh">Andhra Pradesh</option>
-            </select>
-            <div class="invalid-tooltip">
-              Please select a valid state.
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="validationTooltip05">Zip</label>
-            <input type="text" class="form-control" id="validationTooltip05" required>
-            <div class="invalid-tooltip">
-              Please provide a valid zip.
-            </div>
-          </div>
-
-        </div>
-          <div class="form-group row">
-              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="user@domain">
+    <div ng-controller="CoronaQuizController as ctrl">
+      <div class="shadow p-3 mb-5 bg-white rounded container">
+        <div align="center"><h1>How much You Know About Corona !</h1></div>
+          
+            <div ng-repeat="ques in ctrl.quesBank">
+             <h5> {{$index+1}}. {{ques.question}}</h5><span style="color: green;font-style: italic;font-weight: bold;" ng-if="ctrl.resultofResponse[$index+1]===1"> {{ctrl.message}}</span>
+              <div ng-repeat="option in ques.options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="q+{{ques.id}}" id="q+{{ques.id}}+op+{{$index+1}}" value="{{option}}" ng-model="ctrl.response[ques.id]">
+                    <label class="form-check-label" for="q+{{ques.id}}+op+{{$index+1}}">
+                     {{option}}  
+                    </label>
+                </div>
               </div>
-          </div>
-         Write an article to us:
-         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="customFile">
-          <label class="custom-file-label" for="customFile">Choose file</label>
-        </div>
-        <button class="btn btn-primary" type="submit" style="margin-top: 5px;">Submit form</button>
-      </form>
+            </div>
+            <div align="center">
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" ng-click="ctrl.submit();" id="submitButton"> submit</button>
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Result</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" style="font-weight: bold;">
+                      you have scored {{ctrl.score}} out of 10
+                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click="ctrl.afterresult();">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+      </div>
     </div>
      <!-- footer -->
 
