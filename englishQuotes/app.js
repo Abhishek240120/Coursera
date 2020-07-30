@@ -37,40 +37,41 @@ function Myctrl(service,$http) {
          console.log(res);
          ctrl.myWelcome=res.data.status;
       },(err)=>{
-         console.log(err);
+         ctrl.myWelcome="Denied !";
       });
    }
 
-
-
-   $http.get("http://localhost:3000/comments").then((res)=>{
-     ctrl.comments=res.data;
-     console.log(ctrl.comments);
-   },(err)=>{
-     console.log(err);
-   });
 
 }
 
 function MyCtrl2(service,$http){
   var ctrl=this;
-  ctrl.test="kjnkn";
   ctrl.comment="";
+  ctrl.message="";
+  ctrl.refreshPost=function(){
+    ctrl.comment="";
+    ctrl.message="";
+  }
   ctrl.commentpost=function(){
     console.log("In here");
     service.postcomment(ctrl.comment).then((res)=>{
+      ctrl.message="posted !";
     console.log(res);
     },(err)=>{
       console.log(err);
+      ctrl.message="error occurred !";
     });
   }
 
-$http.get("https://engquot.herokuapp.com/comments").then((res)=>{
-     ctrl.comments=res.data;
-     console.log(ctrl.comments[0].comment);
-   },(err)=>{
-     console.log(err);
-   });
+  ctrl.refresh=function(){
+    $http.get("https://engquot.herokuapp.com/comments").then((res)=>{
+       ctrl.comments=res.data;
+       console.log(ctrl.comments[0].comment);
+     },(err)=>{
+       console.log(err);
+     });
+  }
+  ctrl.refresh();
 
 
 

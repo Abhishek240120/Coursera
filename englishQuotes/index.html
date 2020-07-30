@@ -103,6 +103,7 @@
 	<!-- modal -->
 
     <div ng-controller="MyCtrl2 as ctrl2">
+    	<div class="container"><button class="btn-success"  ng-click="ctrl2.refresh();">refresh</button></div>
     <div ng-repeat="i in ctrl2.comments">
 		<hr>
 		<div class="container">
@@ -178,29 +179,30 @@
 	  </div>
 	</div>
 
-	<div class="modal fade" id="postcomment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="postcomment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-controller="MyCtrl2 as ctrl">
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="ctrl.refreshPost();">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <form class="container" ng-controller="MyCtrl2 as ctrl">
+	        <form class="container">
 			  <div class="form-group">
 			    <label for="commentInput">Your thought</label>
 			    <textarea  id="commentInput" ng-model="ctrl.comment"  style="height:200px;width:270px;"></textarea>
-			    {{ctrl.comment}}
+			    
 			    <br>
 			  </div>
 			  <button ng-click="ctrl.commentpost();"  class="btn btn-primary">POST</button>
+			  {{ctrl.message}}
 			</form>
 
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button ng-click="ctrl.refreshPost();" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 	      </div>
 	    </div>
 	  </div>
