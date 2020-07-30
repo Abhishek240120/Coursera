@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html  ng-app="myApp" >
+<head>
+
+	 <meta charset="utf-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+	<script src="./lib/angular.min.js"></script>
+	<script src="app.js"></script>
+
+	<title>Motivate</title>
+</head>
+<body>
+      <!-- header -->
+    <nav class="navbar navbar-light bg-danger">
+		<span class="navbar-brand mb-0 h1">English Quotes</span>
+	</nav>
+	<br>
+    <!-- header  ends-->
+    <!-- a simple alert -->
+    <div class="alert alert-success" role="alert">
+	  Want to know number of corona cases,<a href="https://abhishek240120.github.io/Coursera/corona">click here</a>
+	</div>
+    <!--alert ends here-->
+
+	<!--jumbotron--> 
+	
+	<div class="jumbotron">
+	  <h1 class="display-4">Hello</h1>
+	  <p class="lead">This is a simple website for exploring your thoughts.</p>
+	  <hr class="my-4">
+	 
+		  <p>Not signed up yet...</p>
+		  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
+			  SignUp
+		  </button>
+	</div>
+	<!-- jumbotron ends -->
+    <div ng-controller="MyCtrl as ctrl">
+	<div  class="container" style="font-size: 1.5em;">
+		<div style="font-weight: bold;color: red;">
+			welcome {{ctrl.loggedinAs}}
+		</div>
+	</div>
+	
+	<!-- login -->
+	<form class="container">
+	  <div class="form-group">
+	    <label for="usernameInput">Username</label>
+	    <input  class="form-control" id="usernameInput" ng-model="ctrl.username"> 
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1" ng-model="ctrl.password">
+	  </div>
+	  <button ng-click="ctrl.login()" class="btn btn-primary">Login</button>
+	  {{ctrl.myWelcome}}
+	</form>
+    </div>
+	<!-- login -->
+	<br>
+	<div class="container">
+		<div style="font-style: italic;font-size: 1.5em;font-color:red;">
+			<span>want to <a data-toggle="modal" data-target="#postcomment" style="color: blue"> post </a>something </span>
+		</div>
+	</div>
+	<!-- signup-->
+	<!-- <form class="container" ng-controller="MyCtrl as ctrl">
+	  <div class="form-group">
+	    <label for="usernameInput">Username</label>
+	    <input  class="form-control" id="usernameInput" ng-model="ctrl.username">
+	    {{ctrl.username}}
+	    <br>
+	  </div>
+	  <div class="form-group">
+	    <label for="nameInput">Name</label>
+	    <input  class="form-control" id="usernameInput" ng-model="ctrl.name">
+	    {{ctrl.name}}
+	    <br>
+	  </div>
+	  <div class="form-group">
+	    <label for="cityInput">City</label>
+	    <input  class="form-control" id="usernameInput" ng-model="ctrl.city">
+	    {{ctrl.city}}
+	    <br>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1" ng-model="ctrl.password">
+	  </div>
+	  <button ng-click="ctrl.signup()" class="btn btn-primary">Signup</button>
+	  {{ctrl.myWelcome}}
+	</form> -->
+
+	<!-- modal -->
+
+    <div ng-controller="MyCtrl2 as ctrl2">
+    <div ng-repeat="i in ctrl2.comments">
+		<hr>
+		<div class="container">
+		    <h3>{{i.author.username}}</h3>
+		    <span style="color:#800080;font-style: italic;">
+		    {{i.comment}}</span>
+		</div>
+		<hr>
+	<!-- <div class="container" >
+	    <h3>Media heading</h3>
+	    <span style="color:#800080;font-style: italic;">
+	    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
+	</div>
+	<hr>
+	<div class="container" >
+	    <h3>Media heading</h3>
+	    <span style="color:#800080;font-style: italic;">
+	    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
+	</div>
+	<hr>
+	<div class="container" >
+	    <h3>Media heading</h3>
+	    <span style="color:#800080;font-style: italic;">
+	    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</span>
+	</div> -->
+	</div>
+    </div>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+	<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <form class="container" ng-controller="MyCtrl as ctrl">
+			  <div class="form-group">
+			    <label for="usernameInput">Username</label>
+			    <input  class="form-control" id="usernameInput" ng-model="ctrl.username">
+			    {{ctrl.username}}
+			    <br>
+			  </div>
+			  <div class="form-group">
+			    <label for="nameInput">Name</label>
+			    <input  class="form-control" id="usernameInput" ng-model="ctrl.name">
+			    {{ctrl.name}}
+			    <br>
+			  </div>
+			  <div class="form-group">
+			    <label for="cityInput">City</label>
+			    <input  class="form-control" id="usernameInput" ng-model="ctrl.city">
+			    {{ctrl.city}}
+			    <br>
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Password</label>
+			    <input type="password" class="form-control" id="exampleInputPassword1" ng-model="ctrl.password">
+			  </div>
+			  <button ng-click="ctrl.signup()" class="btn btn-primary">Signup</button>
+			  {{ctrl.myWelcome}}
+			</form>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="postcomment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <form class="container" ng-controller="MyCtrl2 as ctrl">
+			  <div class="form-group">
+			    <label for="commentInput">Your thought</label>
+			    <textarea  id="commentInput" ng-model="ctrl.comment"  style="height:200px;width:270px;"></textarea>
+			    {{ctrl.comment}}
+			    <br>
+			  </div>
+			  <button ng-click="ctrl.commentpost();"  class="btn btn-primary">POST</button>
+			</form>
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+</body>
+
+
+
+</html>
