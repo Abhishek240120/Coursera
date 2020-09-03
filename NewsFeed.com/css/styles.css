@@ -1,0 +1,114 @@
+#showingDateAtTop{
+	margin-right: 50px;
+	font-size: 90%;
+	color:white;
+}
+#motiveAtTop{
+	color: white;
+	font-family: "Times New Roman", Times, serif;
+}
+#nameOfJournal{
+	color: red;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 350%;
+}
+.navbar{
+	background-color: black;
+}
+#newsDivHeader{
+	background-color: blue;
+}
+
+#defenceDropdown,#sportsDropdown,#eduDropdown,#politicsDropDown,#enterDropDown{
+	font-size: 80%;
+	margin-top: 1px;
+	color: white; 
+}
+#defenceDropdown:hover{
+	color: red;
+}
+#sportsDropdown:hover{
+	color: red;
+}
+#eduDropdown:hover{
+	color: red;
+}
+#politicsDropDown:hover{
+	color: red;
+}
+#enterDropDown:hover{
+	color: red;
+}
+
+.panel-footer{
+	margin-top: 10px;
+	background-color: black;
+}
+.panel-footer .container{
+	padding:15px;
+	color: white;
+}
+#footerTopStories{
+	font-size: 90%;
+}
+#botheader1{
+ 	visibility: hidden;
+}
+#topstories{
+	padding: 5px;
+	border: 2px solid black;
+}
+#headline{
+	padding: 5px;
+}
+@media(max-width: 991px){
+	#home{
+		margin-top:-10px;
+	}
+	#baseline{
+		margin-top: -10px;
+		width:50px;
+		height: 50px;
+	}
+	#defenceDropdown,#sportsDropdown,#eduDropdown,#politicsDropDown,##enterDropDown{
+		font-size: 100%;
+		margin-top: 1px;
+		color: white; 
+	}
+	#defenceDropdown:hover{
+		color: red;
+	}
+	#sportsDropdown:hover{
+		color: red;
+	}
+	#eduDropdown:hover{
+		color: red;
+	}
+	#politicsDropDown:hover{
+		color: red;
+	}
+	#enterDropDown:hover{
+		color: red;
+	}
+	#nameOfJournal{
+		color: red;
+		font-family: "Times New Roman", Times, serif;
+		font-size: 250%;
+	}
+}
+ 
+
+ @media(max-width: 756px){
+ 	#botheader1{
+ 		visibility: visible;
+ 	}
+ 	#topstories{
+ 		width: 300px;
+		padding: 5px;
+		border: 2px solid black;
+		
+	}
+	#headline{
+		padding: 5px;
+	}
+ }

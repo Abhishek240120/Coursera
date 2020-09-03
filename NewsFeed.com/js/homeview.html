@@ -1,0 +1,61 @@
+ <div class="container" style="margin-top: 5px;padding:5px">
+    	<div class="row">
+    		<div class="col-sm-3">
+    			<div class="card" style="width:100%;">
+				  <div class="card-body">
+				    <h5 class="card-title">Top News</h5>
+				    <hr color="red">
+				    <div ng-repeat="top in ctrl.topnews">
+				    	<div ng-click="ctrl.send(top.id);">	
+					    	<p style="color: red">
+					    	{{top.heading}}
+					    	</p>	
+					    	<hr>
+				    	</div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+				    <!-- <ul>
+				    	<li>
+				    		<div ng-click="ctrl.send();">
+				    		
+				    		<p style="color: red">
+				    		cdfjjfvjjjjjjjb vb fb kfb bfbkfbkbfbfkbfkbfbbfbf
+				    		</p>
+				    		
+				    		<hr>
+				    		<div>
+				    	</li>
+				    	<li>
+				    		<a ui-sref="uniqueNews">
+				    		<p style="color: red">cdfjjfvjjjjjjjb vb fb kfb bfbkfbkbfbfkbfkbfbbfbf
+				    		<hr></p>
+				    		</a>
+				    	</li>
+				    	<li>
+				    		<a ui-sref="uniqueNews">
+				    		<p style="color: red">cdfjjfvjjjjjjjb vb fb kfb bfbkfbkbfbfkbfkbfbbfbf
+				    		<hr></p>
+				    		</a>
+				    	</li>
+				    	<li>
+				    		<a ui-sref="uniqueNews">
+				    		<p style="color: red">cdfjjfvjjjjjjjb vb fb kfb bfbkfbkbfbfkbfkbfbbfbf
+				    		<hr></p>
+				    		</a>
+				    	</li>
+				    </ul> -->
+    		<div class="col-sm-9">
+    			<div class="card" style="width:100%;">
+				  <img src="templates/johnny-depp.jpg" class="card-img-top" alt="...">
+				  <div class="card-body">
+				    <h5 class="card-title">Card title</h5>
+				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>				    
+				  </div>
+				</div>
+    		</div>
+    	</div>
+    	
+		  
+	</div>
